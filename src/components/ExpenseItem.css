@@ -2,9 +2,7 @@
 	display: flex;
 	padding: 1rem;
 	background-color: grey;
-	color: white;
 	margin: 0.5rem;
-	border-radius: 16px;
 	gap: 0.5rem;
 	align-items: center;
 	justify-content: center;
@@ -23,7 +21,7 @@
 .expense-item__amount {
 	padding: 0.5rem 1rem;
 	border: 1px solid white;
-	border-radius: 16px;
+	border-radius: 12px;
 	font-family: inherit;
 	font-size: 35px;
 	font-weight: bold;
