@@ -1,37 +1,37 @@
-import { useState } from "react";
-import "./ExpenseForm.css";
+import { useState } from "react"
+import "./ExpenseForm.css"
 
 const ExpenseForm = (props) => {
-	const [enteredTitle, setEnteredTitle] = useState("");
-	const [enteredAmount, setEnteredAmount] = useState("");
-	const [enteredDate, setEnteredDate] = useState("");
+	const [enteredTitle, setEnteredTitle] = useState("")
+	const [enteredAmount, setEnteredAmount] = useState("")
+	const [enteredDate, setEnteredDate] = useState("")
 	const titleChangeHandler = (event) => {
-		setEnteredTitle(event.target.value);
-	};
+		setEnteredTitle(event.target.value)
+	}
 	const amountChangeHandler = (event) => {
-		setEnteredAmount(event.target.value);
-	};
+		setEnteredAmount(event.target.value)
+	}
 	const dateChangeHandler = (event) => {
-		setEnteredDate(event.target.value);
-	};
+		setEnteredDate(event.target.value)
+	}
 
 	const submitHandler = (event) => {
-		event.preventDefault();
+		event.preventDefault()
 		const expenseData = {
 			title: enteredTitle,
 			amount: enteredAmount,
 			date: new Date(enteredDate),
-		};
+		}
 		// console.log(expenseData)
-		props.onSaveExpenseData(expenseData);
-		setEnteredTitle("");
-		setEnteredAmount("");
-		setEnteredDate("");
-	};
+		props.onSaveExpenseData(expenseData)
+		setEnteredTitle("")
+		setEnteredAmount("")
+		setEnteredDate("")
+	}
 
-	const showAddNewExpenseFormHandler = () => {
-		props.addNewExpnese(true);
-	};
+	const cancelEdittingFormHandler = () => {
+		props.onCancel(true)
+	}
 
 	return (
 		<form onSubmit={submitHandler}>
@@ -42,6 +42,7 @@ const ExpenseForm = (props) => {
 						type="text"
 						onChange={titleChangeHandler}
 						value={enteredTitle}
+						required
 					/>
 				</div>
 				<div className="new-expense_control">
@@ -52,6 +53,7 @@ const ExpenseForm = (props) => {
 						step="0.01"
 						onChange={amountChangeHandler}
 						value={enteredAmount}
+						required
 					/>
 				</div>
 				<div className="new-expense_control">
@@ -62,17 +64,18 @@ const ExpenseForm = (props) => {
 						max="2022-12-31"
 						onChange={dateChangeHandler}
 						value={enteredDate}
+						required
 					/>
 				</div>
 			</div>
 			<div className="new-expense_actions">
-				<button type="button" onClick={showAddNewExpenseFormHandler}>
+				<button type="button" onClick={cancelEdittingFormHandler}>
 					Cancel
 				</button>
 				<button type="submit">Add Expense</button>
 			</div>
 		</form>
-	);
-};
+	)
+}
 
-export default ExpenseForm;
+export default ExpenseForm
