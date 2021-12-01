@@ -24,3 +24,7 @@
 .new-expense_actions {
 	text-align: right;
 }
+
+.new-expense_actions button {
+	margin-left: 2rem;
+}
