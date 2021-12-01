@@ -1,8 +1,8 @@
 .expense-item__date {
-	padding: 1rem 2rem;
+	padding: 0.5rem 1rem;
 	border: 1px solid white;
 	font-family: inherit;
-	font-size: 18px;
+	font-size: 16px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -12,7 +12,7 @@
 }
 
 .expense-item__date-day {
-	font-size: 35px;
+	font-size: 25px;
 	font-weight: bold;
 }
 

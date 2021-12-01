@@ -11,6 +11,26 @@ const Expenses = (props) => {
 	const filterChangeHandler = (selectedYear) => {
 		setSelectedYear(selectedYear);
 	};
+
+	// Filter expenses by the selected year
+	let filteredExpenses = props.expenses.filter(
+		(expense) => expense.date.getFullYear().toString() === filteredYear
+	);
+
+	// Render message when no expenses are recorded for the selected year
+	let expenseContent = <p>No expenses recorded for {filteredYear}</p>;
+
+	// Render list of expenses when there are expenses for the selected year
+	if (filteredExpenses.length > 0) {
+		expenseContent = filteredExpenses.map((expense) => (
+			<ExpenseItem
+				date={expense.date}
+				title={expense.title}
+				amount={expense.amount}
+			/>
+		));
+	}
+
 	return (
 		<Card className="expenses">
 			<ExpenseFilter
@@ -18,13 +38,7 @@ const Expenses = (props) => {
 				selectedYear={filterChangeHandler}
 			/>
 
-			{props.expenses.map((expense) => (
-				<ExpenseItem
-					date={expense.date}
-					title={expense.title}
-					amount={expense.amount}
-				/>
-			))}
+			{expenseContent}
 		</Card>
 	);
 };
