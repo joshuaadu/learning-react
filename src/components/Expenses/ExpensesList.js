@@ -10,15 +10,17 @@ const ExpensesList = (props) => {
 
 	// Render list of expenses when there are expenses for the selected year
 	if (props.expenses.length > 0) {
-		return props.expenses.map((expense) => (
+		return (
 			<ul className="expenses-List">
-				<ExpenseItem
-					date={expense.date}
-					title={expense.title}
-					amount={expense.amount}
-				/>
+				{props.expenses.map((expense) => (
+					<ExpenseItem
+						date={expense.date}
+						title={expense.title}
+						amount={expense.amount}
+					/>
+				))}
 			</ul>
-		));
+		);
 	}
 };
 
